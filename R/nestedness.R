@@ -43,7 +43,7 @@ nestedness <- function(M){
   }
 
   # Compute nestedness of the network
-  nestedness <- (nestedness_rows + nestedness_cols) / ((nrows * (nrows - 1) / 2) + (ncols * (ncols - 1) / 2))
+  nestedness_val <- (nestedness_rows + nestedness_cols) / ((nrows * (nrows - 1) / 2) + (ncols * (ncols - 1) / 2))
 
-  return(nestedness)
+  return(nestedness_val)
 }
