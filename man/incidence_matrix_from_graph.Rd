@@ -6,7 +6,7 @@ Convert a bipartite graph into an incidence matrix. \cr
 }
 %~
 \description{
-Conveert an igraph object into an incidence matrix suitable to be the first argument of the function remove_rows().
+Convert an igraph object into an incidence matrix suitable to be the first argument of the function remove_rows().
 }
 %~
 \usage{
