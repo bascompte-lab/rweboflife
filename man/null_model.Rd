@@ -15,7 +15,7 @@ null_model(my_matrix, iter_max = 200, model = "swap")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{my_matrix}{matrix, the input matrix. If not yet binarized, it will be converted}
+  \item{my_matrix}{matrix, the input matrix. If not yet binarized, it will be converted into a binary matrix}
   \item{iter_max}{integer, maximum number of iterations}
   \item{model}{string, select the type of null model}
 }
