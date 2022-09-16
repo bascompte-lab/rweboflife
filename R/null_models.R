@@ -40,14 +40,102 @@ create_indexes <- function(nr, nc) {
   return(c(index1,index2,index3,index4))
 }
 
+#' @NoRd
+count_nonzero <- function(M){
+  MM <- as.matrix((M>0))
+  class(MM) <- "numeric"
+  return(sum(MM))
+}
+
+
+#' @NoRd
+equifrequent_model <- function(M_in){
+
+  rows <- nrow(M_in)
+  columns <- ncol(M_in)
+  number_ones <- count_nonzero(M_in)
+  count_ones <- 0
+
+  M_equif <- matrix(0, rows, columns)
+
+  while (count_ones < number_ones) {
+
+    x <- ceiling(runif(1, min = 0, max = rows))
+    y <- ceiling(runif(1, min = 0, max = columns))
+
+    while (M_equif[x,y] == 1) {
+
+      x <- ceiling(runif(1, min = 0, max = rows))
+      y <- ceiling(runif(1, min = 0, max = columns))
+
+    }
+
+    M_equif[x,y] <- 1
+    count_ones <- count_ones + 1;
+  }
+
+  return(M_equif)
+}
+
+
+#' @NoRd
+cell_model <- function(M_in){
+
+  rows <- nrow(M_in)
+  columns <- ncol(M_in)
+
+  # binarize M_in
+  M <- as.matrix((M_in>0))
+  class(M) <- "numeric"
+
+  PR <- matrix(0, rows, 1)
+  PC <- matrix(0, columns, 1)
+  M_cell <- matrix(0, rows, columns)
+
+  for (i in 1:rows){
+    number_ones <- 0
+    for (j in 1:columns){
+      if(M[i,j] == 1){
+        number_ones <- number_ones + 1
+      }
+    }
+    PR[i] <- number_ones/columns
+  }
+
+  for (j in 1:columns){
+    number_ones <- 0
+    for (i in 1:rows){
+      if(M[i,j] == 1){
+        number_ones <- number_ones + 1
+      }
+    }
+    PC[j] <- number_ones/rows
+  }
+
+  for (i in 1:rows){
+    for (j in 1:columns){
+      p <- (PR[i]+PC[j])/2;
+      r <- runif(1)
+      if( r < p ){
+        M_cell[i,j] <- 1;
+      }
+    }
+
+  }
+
+  return(M_cell)
+}
+
 
 #' @NoRd
 #' @import permute
 swap_model = function(M_in, iter_max){
 
+  nr <- nrow(M_in) # number of rows
+  nc <- ncol(M_in) # number of columns
+
+  # initialize M (randomized matrix) iter loop
   M <- M_in
-  nr <- nrow(M) # number of rows
-  nc <- ncol(M) # number of columns
 
   for(iter in 1:iter_max){
 
@@ -92,11 +180,9 @@ null_model <- function(M_in, iter_max = ncol(M_in)*nrow(M_in), model = NULL){
     if (model == "swap"){
       M_out <- swap_model(M_in, iter_max)
     } else if (model == "equifrequent") {
-      M_out <- M_in
-      stop("Sorry, the equifrequent null model has not been implemented yet")
+      M_out <- equifrequent_model(M_in)
     }  else if (model == "cell") {
-      M_out <- M_in
-      stop("Sorry, the cell null model has not been implemented yet")
+      M_out <- cell_model(M_in)
     }
   }
   return(M_out)
