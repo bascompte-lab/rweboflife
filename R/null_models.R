@@ -171,7 +171,7 @@ swap_model = function(M_in, iter_max){
 
 
 #' @export
-null_model <- function(M_in, iter_max = ncol(M_in)*nrow(M_in), model = NULL){
+null_model <- function(M_in, iter_max = ceiling(nrow(M_in)*ncol(M_in)*2/3), model = NULL){
   # Make sure we are working with a matrix
   M_in <- as.matrix(M_in)
   if(is.null(model)){
