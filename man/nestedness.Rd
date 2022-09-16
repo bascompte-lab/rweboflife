@@ -6,8 +6,7 @@ Compute the nestedness of a matrix. \cr
 }
 %~
 \description{
-Binarizes the input matrix and returns a matrix of the same size and with the same number of non-zero elements,
-randmized according to the chosen null-model algorithm.
+Binarizes the input matrix and computes its nestedness index; nestedness = 1 corresponds to a perfectly nestsed matrix.
 }
 %~
 \usage{

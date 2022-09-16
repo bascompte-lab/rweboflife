@@ -6,25 +6,27 @@ Matrix randomizer. \cr
 }
 %~
 \description{
-Binarizes the input matrix and returns a matrix of the same size and with the same number of non-zero elements,
+Binarizes the input matrix and returns a matrix of the same size and with the same number of non-zero elements (except for the "cell" model),
 randmized according to the chosen null-model algorithm.
 }
 %~
 \usage{
 null_model(my_matrix, iter_max = 200, model = "swap")
+null_model(my_matrix, model = "equifrequent")
+null_model(my_matrix, model = "cell")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{my_matrix}{matrix, the input matrix. If not yet binarized, it will be converted into a binary matrix}
-  \item{iter_max}{integer, maximum number of iterations}
-  \item{model}{string, select the type of null model}
+  \item{iter_max}{integer, maximum number of iterations (swap model only)}
+  \item{model}{string, select the null model; possible values: \cr "swap", "equifrequent", "cell"}
 }
 %~
 \details{
 Required packages: permute
 }
 \value{
-matrix, randomized matrix
+matrix, randomized binary matrix
 %%
 }
 \references{
