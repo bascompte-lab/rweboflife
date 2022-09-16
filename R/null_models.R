@@ -84,6 +84,8 @@ swap_model = function(M_in, iter_max){
 
 #' @export
 null_model <- function(M_in, iter_max = ncol(M_in)*nrow(M_in), model = NULL){
+  # Make sure we are working with a matrix
+  M_in <- as.matrix(M_in)
   if(is.null(model)){
     stop("No type argument assigned for the null model. Please choose one from the list: \"swap\", \"equifrequent\", \"cell\"")
   } else {

@@ -1,6 +1,8 @@
 #' @export
 nestedness <- function(M){
 
+  # Make sure we are working with a matrix
+  M <- as.matrix(M)
   # Binarize the matrix
   B <- as.matrix((M>0))
   class(B) <- "numeric"
