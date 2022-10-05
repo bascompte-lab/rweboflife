@@ -2,9 +2,11 @@
 
 export(incidence_matrix_from_graph)
 export(nestedness)
+export(nestedness_julia)
 export(null_model)
 export(remove_rows)
 export(trim_network)
+import(JuliaCall)
 import(curl)
 import(dplyr)
 import(fastmatch)

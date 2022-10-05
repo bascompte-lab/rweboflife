@@ -1,6 +1,11 @@
 #' @export
 nestedness <- function(M){
 
+  # this code computes the nestedness of a given incident matrix M
+  # according to the definition given in
+  # Fortuna, M.A., et al.: Coevolutionary dynamics shape the structure of bacteria‐phage infection networks. Evolution 1001-1011 (2019).
+  # DOI 10.1111/evo.13731
+
   # Make sure we are working with a matrix
   M <- as.matrix(M)
   # Binarize the matrix
@@ -48,4 +53,16 @@ nestedness <- function(M){
   nestedness_val <- (nestedness_rows + nestedness_cols) / ((nrows * (nrows - 1) / 2) + (ncols * (ncols - 1) / 2))
 
   return(nestedness_val)
+}
+
+
+#' @export
+#' @import JuliaCall
+#' @NoRd
+nestedness_julia <- function(M){
+
+  julia <- julia_setup()
+
+  julia_source("julia/nestedness.jl")
+  return(julia_call("nestedness",M))
 }
