@@ -56,13 +56,12 @@ nestedness <- function(M){
 }
 
 
-#' @export
+
 #' @import JuliaCall
-#' @NoRd
+#' @export
 nestedness_julia <- function(M){
 
   julia <- julia_setup()
-
   julia_source("julia/nestedness.jl")
   return(julia_call("nestedness",M))
 }
