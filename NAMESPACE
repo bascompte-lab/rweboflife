@@ -2,6 +2,7 @@
 
 export(incidence_matrix_from_graph)
 export(nestedness)
+export(nestednessCpp)
 export(nestedness_julia)
 export(null_model)
 export(remove_rows)
@@ -14,3 +15,4 @@ import(igraph)
 import(jsonlite)
 import(permute)
 import(rjson)
+useDynLib(weboflife)
