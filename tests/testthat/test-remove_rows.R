@@ -1,14 +1,13 @@
 test_that("check number of columns and their names", {
 
-  library(rjson)
   library(igraph)
   library(dplyr)
 
-  base_url <- "https://www.web-of-life.es/"
+  path_to_file <- "../testdata/selected_NWs.RData"
+  load(path_to_file)
 
   my_nw_name <- "M_PL_056"
-  json_url <- paste0(base_url,"get_networks.php?network_name=",my_nw_name)
-  my_nw <- jsonlite::fromJSON(json_url)
+  my_nw <- filter(selected_nws, network_name == my_nw_name)
 
   # select the 3 relevant columns and create the igraph object
   my_graph <- my_nw %>% select(species1, species2, connection_strength) %>%
@@ -29,8 +28,8 @@ test_that("check number of columns and their names", {
 
 test_that("number of removed columns equals the rows of the incidence matrix", {
 
-
-  base_url <- "https://www.web-of-life.es/"
+  path_to_file <- "../testdata/selected_NWs.RData"
+  load(path_to_file)
 
   nw_list <-list("M_PL_015","M_PL_044","M_PL_054","M_PL_056")
 
@@ -38,8 +37,8 @@ test_that("number of removed columns equals the rows of the incidence matrix", {
   expected_vec <- c()
 
   for (my_nw_name in nw_list) {
-    json_url <- paste0(base_url,"get_networks.php?network_name=",my_nw_name)
-    my_nw <- jsonlite::fromJSON(json_url)
+
+    my_nw <- filter(selected_nws, network_name == my_nw_name)
 
     my_graph <- my_nw %>% select(species1, species2, connection_strength) %>%
       graph_from_data_frame()

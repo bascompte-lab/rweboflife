@@ -8,7 +8,7 @@ Description: The package contains functions to compute properties of an ecologic
 License: MIT + file LICENCE
 LinkingTo: Rcpp
 Export: nestednessCpp
-Depends: R (>= 3.1.0), dplyr, igraph, rjson, jsonlite, curl, permute, fastmatch, JuliaCall
+Depends: R (>= 3.1.0), dplyr, igraph, permute, fastmatch, JuliaCall
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
