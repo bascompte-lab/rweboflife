@@ -6,7 +6,9 @@ Authors@R:
            comment = c(ORCID = "0000-0003-1941-5989"))
 Description: The package contains functions to compute properties of an ecological network, such as seocndary-extinction curve, connectance, etc. 
 License: MIT + file LICENCE
-Depends: R (>= 3.1.0), dplyr, igraph, rjson, jsonlite, curl, permute, fastmatch
+LinkingTo: Rcpp
+Export: nestednessCpp
+Depends: R (>= 3.1.0), dplyr, igraph, permute, fastmatch, JuliaCall
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1

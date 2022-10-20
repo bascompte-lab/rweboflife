@@ -1,5 +1,5 @@
 #' @export
-#' @import igraph rjson jsonlite curl
+#' @import igraph
 incidence_matrix_from_graph <- function(my_graph){
 
   # Add the "type" attribute to the vertices of the graph
