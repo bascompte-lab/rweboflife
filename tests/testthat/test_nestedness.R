@@ -15,7 +15,8 @@ test_that("the nestedness of a perfecly nested matrix is 1 and of a rnd matrix i
   m <- 40 # number of columns
 
   nested_mat <- perfect_nested(n,m)
-  expect_equal(1, nestedness(nested_mat))
+  expect_equal(1, nestednessR(nested_mat)) # R version
+  expect_equal(1, nestedness(nested_mat))  # cpp version
 
   # random matrix
   M <- matrix(0,n,m)
@@ -25,7 +26,9 @@ test_that("the nestedness of a perfecly nested matrix is 1 and of a rnd matrix i
     }
   }
 
-  expect_true(nestedness(M) < 0.3)
+  expect_true(nestednessR(M) < 0.3) # R version
+  expect_true(nestedness(M) < 0.3)  # cpp version
+  expect_equal(nestedness(M),nestednessR(M)) # both functions should retern the same result
 
 })
 

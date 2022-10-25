@@ -2,7 +2,7 @@
 
 export(incidence_matrix_from_graph)
 export(nestedness)
-export(nestednessCpp)
+export(nestednessR)
 export(null_model)
 export(remove_rows)
 export(trim_network)

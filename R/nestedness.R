@@ -1,5 +1,5 @@
 #' @export
-nestedness <- function(M){
+nestednessR <- function(M){
 
   # this code computes the nestedness of a given incident matrix M
   # according to the definition given in
