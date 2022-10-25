@@ -6,7 +6,8 @@ Compute the nestedness of a matrix. \cr
 }
 %~
 \description{
-Binarizes the input matrix and computes its nestedness index; nestedness = 1 corresponds to a perfectly nestsed matrix.
+Binarizes the input matrix and computes its nestedness index; nestedness = 1 corresponds to a perfectly nestsed matrix. It assumes the definition of nestedness given in
+Fortuna, M.A., et al.: "Coevolutionary dynamics shape the structure of bacteria‐phage infection networks". Evolution 1001-1011 (2019). DOI 10.1111/evo.13731
 }
 %~
 \usage{
