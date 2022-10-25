@@ -27,7 +27,8 @@ test_that("the nestedness of a perfecly nested matrix is 1 and of a rnd matrix i
   }
 
   expect_true(nestednessR(M) < 0.3) # R version
-  expect_true(nestedness(M) < 0.3) # cpp version
+  expect_true(nestedness(M) < 0.3)  # cpp version
+  expect_equal(nestedness(M),nestednessR(M)) # both functions should retern the same result
 
 })
 
