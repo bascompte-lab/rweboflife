@@ -1,4 +1,4 @@
-Package: weboflife
+Package: rweboflife
 Title: Tools for ecological-network analysis
 Version: 0.0.1
 Authors@R: 

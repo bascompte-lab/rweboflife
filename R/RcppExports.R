@@ -2,6 +2,6 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 nestednessCpp <- function(M) {
-    .Call('_weboflife_nestednessCpp', PACKAGE = 'weboflife', M)
+    .Call('_rweboflife_nestednessCpp', PACKAGE = 'rweboflife', M)
 }
 

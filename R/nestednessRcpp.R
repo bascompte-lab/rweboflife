@@ -1,6 +1,6 @@
 #' @export
-#' @rawNamespace useDynLib(weboflife)
+#' @rawNamespace useDynLib(rweboflife)
 nestedness <- function(M) {
-  .Call('_weboflife_nestednessCpp', PACKAGE = 'weboflife', M)
+  .Call('_rweboflife_nestednessCpp', PACKAGE = 'rweboflife', M)
 }
 

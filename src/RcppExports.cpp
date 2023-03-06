@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // nestednessCpp
 double nestednessCpp(const NumericMatrix& M);
-RcppExport SEXP _weboflife_nestednessCpp(SEXP MSEXP) {
+RcppExport SEXP _rweboflife_nestednessCpp(SEXP MSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -23,11 +23,11 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_weboflife_nestednessCpp", (DL_FUNC) &_weboflife_nestednessCpp, 1},
+    {"_rweboflife_nestednessCpp", (DL_FUNC) &_rweboflife_nestednessCpp, 1},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_weboflife(DllInfo *dll) {
+RcppExport void R_init_rweboflife(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }
