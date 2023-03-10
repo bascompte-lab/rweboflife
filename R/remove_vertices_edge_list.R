@@ -21,7 +21,7 @@ measure_graph <- function(N_in, my_edge_list){
     my_graph <- graph_from_edgelist(my_edge_list, directed = FALSE)
     C_max <- largest_cluster_size(my_graph)
     if(!is.finite(C_max))C_max <- 0.
-    row <- c(N_in, n_nodes, n_nodes1, n_nodes2, mean(degree(my_graph)), C_max)
+    row <- c(N_in, n_nodes, n_nodes1, n_nodes2, mean(degree(my_graph)), sd(degree(my_graph)), C_max)
 
   }
   row
@@ -115,7 +115,7 @@ inverse_percolation <-function(my_edge_list, my_vec_rm, iter_max, imeasure, my_s
   }
 
   df_tmp <- df_tmp %>% as.data.frame()
-  colnames(df_tmp) <- c("id","N","n_nodes", "n_nodes1", "n_nodes2", "k_ave", "C_max") #, "eig_1", "eig_2")
+  colnames(df_tmp) <- c("id","N","n_nodes", "n_nodes1", "n_nodes2", "k_ave", "k_sd", "C_max") 
   rownames(df_tmp) <- NULL
 
   df_tmp %>%
@@ -184,7 +184,7 @@ systematic_removal <-function(my_edge_list, my_vec_rm, iter_max, imeasure, desc_
   }
 
   df_tmp <- df_tmp %>% as.data.frame()
-  colnames(df_tmp) <- c("id","N","n_nodes", "n_nodes1", "n_nodes2", "k_ave", "C_max") #, "eig_1", "eig_2")
+  colnames(df_tmp) <- c("id","N","n_nodes", "n_nodes1", "n_nodes2", "k_ave", "k_sd", "C_max") 
   rownames(df_tmp) <- NULL
 
   df_tmp %>%
